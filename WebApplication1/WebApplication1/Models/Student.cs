@@ -7,7 +7,7 @@ namespace WebApplication1.Models {
         public string LastName { get; set; }
         public string IndexNumber { get; set; }
         public DateTime BirthDate { get; set; }
-
+  
         override
         public string ToString() {
             return $"{IdStudent}: {IndexNumber} {FirstName} {LastName}";

@@ -26,6 +26,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IStudentsDAL, SqlServerDbDAL>();
+            services.AddTransient<IEnrollmentDbService, EnrollmentDbService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
