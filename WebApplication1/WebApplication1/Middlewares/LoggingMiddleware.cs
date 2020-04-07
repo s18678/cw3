@@ -33,7 +33,7 @@ namespace WebApplication1.Middlewares
             }
             var query = httpContext.Request.QueryString.ToString();
 
-            using (var writer = new StreamWriter(File.Open(logpath, FileMode.Open)))
+            using (var writer = new StreamWriter(File.Open(logpath, FileMode.Append)))
             {
                 writer.Write(DateTime.Now.ToString() + "\n" + meth + "\n" + path + "\n" + body + "\n" + query + "\n\n\n");
                 writer.Flush();
