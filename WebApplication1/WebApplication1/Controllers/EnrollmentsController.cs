@@ -13,6 +13,7 @@ using WebApplication1.DTOs.Responses;
 using System.Data;
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers
 {
@@ -27,6 +28,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "employee")]
         public IActionResult EnrollStudent(EnrollStudentRequest s) {
            EnrollStudentsResponse ret = ienr.enroll(s);
             if (ret == null) 
@@ -36,6 +38,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost("promotions")]
+        [Authorize(Roles = "employee")]
         public IActionResult promote(PromoteRequest r)
         {
             PromoteAnswer ret = ienr.promote(r);
